@@ -1,6 +1,6 @@
 {
   "name": "wxmp2antmp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "微信小程序转支付宝小程序命令行工具",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/4013465w/wxmp2antmp#readme",
   "dependencies": {
+    "shelljs": "^0.7.8",
     "wxml2axml": "^0.0.8"
   }
 }
