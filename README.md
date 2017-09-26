@@ -1,4 +1,11 @@
 # wxmp2antmp
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/wxmp2antmp"><img src="https://img.shields.io/npm/v/wxmp2antmp.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/wxmp2antmp"><img src="https://img.shields.io/npm/l/wxmp2antmp.svg" alt="License"></a>
+  <br>
+</p>
+
 ## 什么是 wxmp2antmp？
 
 > wxmp2antmp 是一个微信小程序转支付宝小程序的命令行工具
