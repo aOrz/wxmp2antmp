@@ -30,13 +30,29 @@ function walk (fromPath, toPath) {
     }
 }
 
+if (!fs.existsSync(fromPath) || !fs.statSync(fromPath).isDirectory()) {
+    console.error(`${fromPath}文件夹不存在或不是目录`);
+    process.exit(1);
+}
+var targetParent = path.dirname(toPath);
+var canonicalTarget = fs.existsSync(targetParent)
+    ? path.join(fs.realpathSync(targetParent), path.basename(toPath))
+    : toPath;
+var relativeTarget = path.relative(fs.realpathSync(fromPath), canonicalTarget);
+if (relativeTarget === '' || (!path.isAbsolute(relativeTarget) && relativeTarget !== '..' && relativeTarget.indexOf('..' + path.sep) !== 0)) {
+    console.error('输出目录不能位于输入目录内');
+    process.exit(1);
+}
+
 if (fs.existsSync(toPath)) {
-    console.log(`${toPath}文件夹已存在`);
+    console.error(`${toPath}文件夹已存在`);
+    process.exitCode = 1;
 } else if (fs.existsSync(fromPath)) {
     fs.mkdirSync(toPath);
     walk(fromPath, toPath);
 } else {
-    console.log(`${fromPatth}文件夹不存在`);
+    console.error(`${fromPath}文件夹不存在`);
+    process.exitCode = 1;
 }
   
 function isUnwanted(filename) {
