@@ -4,7 +4,7 @@
   "description": "微信小程序转支付宝小程序命令行工具",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/paths.js"
   },
   "bin": {
     "w2a": "index.js"
